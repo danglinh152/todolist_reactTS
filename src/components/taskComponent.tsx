@@ -3,8 +3,8 @@ import Task from "../models/Task";
 
 interface taskInterface {
     task: Task;
-    onDone: (id: number) => void;
-    onDelete: (id: number) => void;
+    onDone: (id: string) => void;
+    onDelete: (id: string) => void;
 }
 
 const TaskComponent: React.FC<taskInterface> = function ({ task, onDone, onDelete }) {

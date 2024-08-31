@@ -4,13 +4,22 @@ import TaskComponent from "./taskComponent";
 
 const TaskTable: React.FC = function () {
     const [taskList, setTaskList] = useState<Task[]>([]);
+    const [taskInput, setTaskInput] = useState<string>('');
 
-    const TaskUp = () => {
-        const newTask = new Task(Date.now(), String(taskList.length + 1));
-        setTaskList([...taskList, newTask]);
+    const handleTaskInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setTaskInput(e.target.value);
     }
 
-    const onDone = (id: number) => {
+    const TaskUp = () => {
+        if (taskInput.trim() !== "") {
+            const newTask = new Task(Date(), taskInput);
+            setTaskList([...taskList, newTask]);
+            setTaskInput('');
+        }
+    }
+
+
+    const onDone = (id: string) => {
         for (let i: number = 0; i < taskList.length; i++) {
             if (taskList[i].getId() === id) {
                 taskList[i].setTask('Done');
@@ -19,7 +28,7 @@ const TaskTable: React.FC = function () {
         setTaskList([...taskList]);
     }
 
-    const onDelete = (id: number) => {
+    const onDelete = (id: string) => {
         const updatedCountList = taskList.filter(task => {
             return task.getId() !== id;
         })
@@ -28,13 +37,14 @@ const TaskTable: React.FC = function () {
 
     return (
         <div className="counter container-lg">
-            <button className="btn btn-primary" onClick={TaskUp}> Click me </button>
+            <input type="text" name="" id="" className="form-control" placeholder="Nhập công việc" value={taskInput} onChange={handleTaskInputChange} />
+            <button className="btn btn-primary mt-3" onClick={TaskUp} > Add task </button>
             <table className="table table-bordered table-striped mt-3">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Giá Trị</th>
-                        <th></th>
+                        <th className="col-lg-4">ID</th>
+                        <th className="col-lg-6">Giá Trị</th>
+                        <th className="col-lg-2"></th>
                     </tr>
                 </thead>
                 <tbody>

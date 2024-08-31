@@ -1,8 +1,8 @@
 class Task {
-    private id: number;
+    private id: string;
     private task: string;
 
-    public constructor(id: number, task: string) {
+    public constructor(id: string, task: string) {
         this.id = id;
         this.task = task;
     }
@@ -15,7 +15,7 @@ class Task {
         return this.task;
     }
 
-    public setId(id: number) {
+    public setId(id: string) {
         this.id = id;
     }
 

@@ -7,7 +7,7 @@ import CountTable from './components/taskTable';
 function App() {
   return (
     <div className="App">
-      <h1 className="title mt-5">COUNTER</h1>
+      <h1 className="title mt-5"> To do list </h1>
       <CountTable />
     </div>
   );
