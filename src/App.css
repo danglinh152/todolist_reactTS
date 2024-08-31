@@ -32,7 +32,39 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+.fa-solid.fa-check {
+  color: green;
+  background-color: inherit;
+  padding: 10px;
+  border-radius: 3px;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.fa-solid.fa-trash {
+  color: red;
+  background-color: inherit;
+  border-radius: 3px;
+  padding: 10px;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.fa-solid.fa-check:hover {
+  background-color: lawngreen;
+  color: white;
+}
+
+.fa-solid.fa-trash:hover {
+  background-color: red;
+  color: white;
 }
